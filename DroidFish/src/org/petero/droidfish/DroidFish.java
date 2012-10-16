@@ -329,6 +329,9 @@ public class DroidFish extends Activity implements GUIInterface {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        ZubhiumSDK.getZubhiumSDKInstance(getApplicationContext(), "ec56b5893fa58ff8dc60a013d1a824");
+
+
         Pair<String,String> pair = getPgnIntent();
         String intentPgn = pair.first;
         String intentFilename = pair.second;
