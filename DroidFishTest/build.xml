@@ -170,7 +170,7 @@
         <exec executable="${adb}" failonerror="true" dir="junit-results">
             <arg line="${adb.device.arg}" />
             <arg value="pull" />
-            <arg value="/data/data/${tested.manifest.package}/files/" />
+            <arg value="/data/data/${tested.project.app.package}/files/" />
         </exec>
     </target>
 
