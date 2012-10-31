@@ -68,6 +68,7 @@
     -->
     <import file="custom_rules.xml" optional="true" />
 
+    <!-- Overriding test target to configure Emma XML output and android-junit-report test runner -->
     <target name="test" depends="-test-project-check"
                 description="Runs tests from the package defined in test.package property">
         <property name="test.runner" value="android.test.InstrumentationTestRunner" />
@@ -164,6 +165,12 @@
                 <run-tests-helper />
             </else>
         </if>
+
+        <exec executable="${adb}" failonerror="true" dir="junit-results">
+            <arg line="${adb.device.arg}" />
+            <arg value="pull" />
+            <arg value="/data/data/${tested.manifest.package}/files/" />
+        </exec>
     </target>
 
     <!-- Import the actual build file.
