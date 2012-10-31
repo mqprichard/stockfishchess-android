@@ -71,7 +71,7 @@
     <!-- Overriding test target to configure Emma XML output and android-junit-report test runner -->
     <target name="test" depends="-test-project-check"
                 description="Runs tests from the package defined in test.package property">
-        <property name="test.runner" value="android.test.InstrumentationTestRunner" />
+        <property name="test.runner" value="com.zutubi.android.junitreport.JUnitReportTestRunner" />
 
         <if condition="${project.is.test}">
         <then>
