@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="custom_rules" default="-pre-build">
+    <property file="local.properties" />
+
+    <property environment="env"/>
+    <property name="ndk.dir" value="${env.ANDROID_NDK}"/>
+    <property name="ndk.cmd" value="ndk-build"/>
+
+    <target name="-pre-build">
+        <exec executable="${ndk.dir}/${ndk.cmd}" failonerror="true">
+            <arg line=""/>
+        </exec>
+    </target>
+
+    <target name="-pre-clean">
+        <exec executable="${ndk.dir}/${ndk.cmd}" failonerror="true">
+            <arg line="clean"/>
+        </exec>
+    </target>
+
+</project>
+
