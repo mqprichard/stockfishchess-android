@@ -13,7 +13,7 @@
     </target>
 
     <target name="-pre-clean">
-        <exec executable="${ndk.dir}/${ndk.cmd}" failonerror="true">
+        <exec executable="${ndk.dir}/${ndk.cmd}" failonerror="false">
             <arg line="clean"/>
         </exec>
     </target>
