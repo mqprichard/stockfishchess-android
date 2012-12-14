@@ -2,14 +2,10 @@
 <project>
 	<actions />
 	<description>
-		Test Android Build: uses DEV@Cloud for build and emulator,
-		with android-16
-		(Android SDK 4.1) target. This build also requires
-		the
-		Android NDK: it will look for it in $WORKSPACE/android-ndk-r8c and if
-		it is not present, will download and unzip it. The
-		build will create a
-		new AVD (Android Virtual Device) for the emulator.
+Test Android Build: uses DEV@Cloud for build and emulator, with android-16 (Android SDK 4.1) target. 
+This build also requires the Android NDK: it will look for it in $WORKSPACE/android-ndk-r8c and if
+it is not present, will download and unzip it. The build will create anew AVD (Android Virtual Device) 
+for the emulator.
 	</description>
 	<logRotator>
 		<daysToKeep>60</daysToKeep>
@@ -19,7 +15,6 @@
 	</logRotator>
 	<keepDependencies>false</keepDependencies>
 	<properties />
-
 	<scm class="hudson.plugins.git.GitSCM">
 		<configVersion>2</configVersion>
 		<userRemoteConfigs>
@@ -71,14 +66,13 @@
 	<builders>
 		<hudson.tasks.Shell>
 			<command>
-				if [ -d $WORKSPACE/android-ndk-r8c ] then echo "Using
-				Android NDK from
-				workspace - $WORKSPACE/android-ndk-r8c" else echo
-				"Downloading
-				Android NDK Release 8c for Linux" wget -nv
-				http://dl.google.com/android/ndk/android-ndk-r8c-linux-x86.tar.bz2
-				tar xjf android-ndk-r8c-linux-x86.tar.bz2 rm
-				android-ndk-r8c-linux-x86.tar.bz2 fi
+if [ -d $WORKSPACE/android-ndk-r8c ] then 
+	echo "Using Android NDK from workspace - $WORKSPACE/android-ndk-r8c" 
+else 
+	echo "Downloading Android NDK Release 8c for Linux" 
+	wget -nv http://dl.google.com/android/ndk/android-ndk-r8c-linux-x86.tar.bz2
+	tar xjf android-ndk-r8c-linux-x86.tar.bz2 
+	rm android-ndk-r8c-linux-x86.tar.bz2 fi
 			</command>
 		</hudson.tasks.Shell>
 		<EnvInjectBuilder>
@@ -89,10 +83,10 @@
 		</EnvInjectBuilder>
 		<hudson.tasks.Shell>
 			<command>
-				$JENKINS_ANDROID_HOME/tools/android update project --path
-				DroidFish --target "android-16" --subprojects
-				$JENKINS_ANDROID_HOME/tools/android update test-project --path
-				DroidFishTest --main ../DroidFish
+$JENKINS_ANDROID_HOME/tools/android update project --path
+DroidFish --target "android-16" --subprojects
+$JENKINS_ANDROID_HOME/tools/android update test-project --path
+DroidFishTest --main ../DroidFish
 			</command>
 		</hudson.tasks.Shell>
 		<hudson.tasks.Ant>
