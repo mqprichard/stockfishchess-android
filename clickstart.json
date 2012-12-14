@@ -9,7 +9,7 @@
     "build-with-jenkins": {
         "plugins" : ["git","android-emulator"],
         "template": {
-            "type": "https://raw.github.com/mqprichard/stockfishchess-android/master/DroidFish/jenkins-config.xml",
+            "type": "https://raw.github.com/mqprichard/stockfishchess-android/master/jenkins-config.xml",
             "options": {
             }
         }
