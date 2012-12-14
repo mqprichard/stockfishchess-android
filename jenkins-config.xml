@@ -22,7 +22,7 @@ for the emulator.
 				<name />
 				<refspec />
 				<url>
-					${repositoryUrl}
+${repositoryUrl}
 				</url>
 			</hudson.plugins.git.UserRemoteConfig>
 		</userRemoteConfigs>
