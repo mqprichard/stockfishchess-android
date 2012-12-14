@@ -27,7 +27,7 @@
 				<name />
 				<refspec />
 				<url>
-					https://github.com/mqprichard/stockfishchess-android.git
+					${repositoryUrl}
 				</url>
 			</hudson.plugins.git.UserRemoteConfig>
 		</userRemoteConfigs>
