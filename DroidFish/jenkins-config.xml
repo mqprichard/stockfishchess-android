@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+	<actions />
+	<description>
+		Test Android Build: uses DEV@Cloud for build and emulator,
+		with android-16
+		(Android SDK 4.1) target. This build also requires
+		the
+		Android NDK: it will look for it in $WORKSPACE/android-ndk-r8c and if
+		it is not present, will download and unzip it. The
+		build will create a
+		new AVD (Android Virtual Device) for the emulator.
+	</description>
+	<logRotator>
+		<daysToKeep>60</daysToKeep>
+		<numToKeep>-1</numToKeep>
+		<artifactDaysToKeep>-1</artifactDaysToKeep>
+		<artifactNumToKeep>20</artifactNumToKeep>
+	</logRotator>
+	<keepDependencies>false</keepDependencies>
+	<properties />
+
+	<scm class="hudson.plugins.git.GitSCM">
+		<configVersion>2</configVersion>
+		<userRemoteConfigs>
+			<hudson.plugins.git.UserRemoteConfig>
+				<name />
+				<refspec />
+				<url>
+					https://github.com/mqprichard/stockfishchess-android.git
+				</url>
+			</hudson.plugins.git.UserRemoteConfig>
+		</userRemoteConfigs>
+		<branches>
+			<hudson.plugins.git.BranchSpec>
+				<name>**</name>
+			</hudson.plugins.git.BranchSpec>
+		</branches>
+		<disableSubmodules>false</disableSubmodules>
+		<recursiveSubmodules>false</recursiveSubmodules>
+		<doGenerateSubmoduleConfigurations>false
+		</doGenerateSubmoduleConfigurations>
+		<authorOrCommitter>false</authorOrCommitter>
+		<clean>false</clean>
+		<wipeOutWorkspace>false</wipeOutWorkspace>
+		<pruneBranches>false</pruneBranches>
+		<remotePoll>false</remotePoll>
+		<ignoreNotifyCommit>false</ignoreNotifyCommit>
+		<useShallowClone>false</useShallowClone>
+		<buildChooser class="hudson.plugins.git.util.DefaultBuildChooser" />
+		<gitTool>Default</gitTool>
+		<submoduleCfg class="list" />
+		<relativeTargetDir />
+		<reference />
+		<excludedRegions />
+		<excludedUsers />
+		<gitConfigName />
+		<gitConfigEmail />
+		<skipTag>false</skipTag>
+		<includedRegions />
+		<scmName />
+	</scm>
+	<canRoam>true</canRoam>
+	<disabled>false</disabled>
+	<blockBuildWhenDownstreamBuilding>false
+	</blockBuildWhenDownstreamBuilding>
+	<blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+	<jdk>(Default)</jdk>
+	<triggers class="vector" />
+	<concurrentBuild>false</concurrentBuild>
+	<builders>
+		<hudson.tasks.Shell>
+			<command>
+				if [ -d $WORKSPACE/android-ndk-r8c ] then echo "Using
+				Android NDK from
+				workspace - $WORKSPACE/android-ndk-r8c" else echo
+				"Downloading
+				Android NDK Release 8c for Linux" wget -nv
+				http://dl.google.com/android/ndk/android-ndk-r8c-linux-x86.tar.bz2
+				tar xjf android-ndk-r8c-linux-x86.tar.bz2 rm
+				android-ndk-r8c-linux-x86.tar.bz2 fi
+			</command>
+		</hudson.tasks.Shell>
+		<EnvInjectBuilder>
+			<info>
+				<propertiesContent>ANDROID_NDK=$WORKSPACE/android-ndk-r8c
+				</propertiesContent>
+			</info>
+		</EnvInjectBuilder>
+		<hudson.tasks.Shell>
+			<command>
+				$JENKINS_ANDROID_HOME/tools/android update project --path
+				DroidFish --target "android-16" --subprojects
+				$JENKINS_ANDROID_HOME/tools/android update test-project --path
+				DroidFishTest --main ../DroidFish
+			</command>
+		</hudson.tasks.Shell>
+		<hudson.tasks.Ant>
+			<targets>clean debug install</targets>
+			<buildFile>DroidFish/build.xml</buildFile>
+		</hudson.tasks.Ant>
+	</builders>
+	<publishers />
+	<buildWrappers>
+		<hudson.plugins.android__emulator.AndroidEmulator>
+			<osVersion>4.1</osVersion>
+			<screenDensity>240</screenDensity>
+			<screenResolution>WVGA</screenResolution>
+			<deviceLocale>en_US</deviceLocale>
+			<targetAbi>armeabi-v7a</targetAbi>
+			<sdCardSize>128M</sdCardSize>
+			<hardwareProperties />
+			<wipeData>false</wipeData>
+			<showWindow>false</showWindow>
+			<useSnapshots>true</useSnapshots>
+			<deleteAfterBuild>false</deleteAfterBuild>
+			<startupDelay>0</startupDelay>
+			<commandLineOptions />
+		</hudson.plugins.android__emulator.AndroidEmulator>
+	</buildWrappers>
+</project>
