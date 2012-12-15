@@ -83,10 +83,8 @@ fi
 		</EnvInjectBuilder>
 		<hudson.tasks.Shell>
 			<command>
-$JENKINS_ANDROID_HOME/tools/android update project --path
-DroidFish --target "android-16" --subprojects
-$JENKINS_ANDROID_HOME/tools/android update test-project --path
-DroidFishTest --main ../DroidFish
+$JENKINS_ANDROID_HOME/tools/android update project --path DroidFish --target "android-16" --subprojects
+$JENKINS_ANDROID_HOME/tools/android update test-project --path DroidFishTest --main ../DroidFish
 			</command>
 		</hudson.tasks.Shell>
 		<hudson.tasks.Ant>
