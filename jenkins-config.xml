@@ -88,8 +88,8 @@ $JENKINS_ANDROID_HOME/tools/android update test-project --path DroidFishTest --m
 			</command>
 		</hudson.tasks.Shell>
 		<hudson.tasks.Ant>
-			<targets>clean debug install</targets>
-			<buildFile>DroidFish/build.xml</buildFile>
+			<targets>clean debug install test</targets>
+			<buildFile>DroidFishTest/build.xml</buildFile>
 		</hudson.tasks.Ant>
 	</builders>
 	<publishers />
