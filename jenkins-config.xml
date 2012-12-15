@@ -4,8 +4,8 @@
 	<description>
 Test Android Build: uses DEV@Cloud for build and emulator, with android-16 (Android SDK 4.1) target. 
 This build also requires the Android NDK: it will look for it in $WORKSPACE/android-ndk-r8c and if
-it is not present, will download and unzip it. The build will create anew AVD (Android Virtual Device) 
-for the emulator.
+it is not present, will download and unzip it. The build will create a new AVD (Android Virtual Device)
+to run the DroidFishTest test project.
 	</description>
 	<logRotator>
 		<daysToKeep>60</daysToKeep>
