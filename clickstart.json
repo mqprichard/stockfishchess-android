@@ -2,7 +2,7 @@
     "id": "stockfishchess-android",
     "name": "DroidFish",
     "source": "github",
-    "description" : "Peter Osterlund's DroidFish Chess Program for Android (Stockfish)",
+    "description" : "DroidFish Chess Program for Android",
     "doc-url" : "https://github.com/mqprichard/stockfishchess-android/blob/master/readme.md",
     "icon" : "https://d3ko533tu1ozfq.cloudfront.net/clickstart/sencha_icon.png",
 
