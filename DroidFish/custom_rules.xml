@@ -17,6 +17,9 @@
         <exec executable="${ndk.dir}/${ndk.cmd}" failonerror="false">
             <arg line="clean"/>
         </exec>
+        <delete>
+            <fileset dir="assets" includes="stockfish-*">
+        </delete>
     </target>
 
 </project>
