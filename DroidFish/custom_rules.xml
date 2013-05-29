@@ -19,6 +19,8 @@
         </exec>
         <delete>
             <fileset dir="assets" includes="stockfish-*"/>
+            <fileset dir="libs" includes="**/stockfish"/>
+            <fileset dir="libs" includes="**/.so"/>
         </delete>
     </target>
 
