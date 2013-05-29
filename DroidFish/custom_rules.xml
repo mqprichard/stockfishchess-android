@@ -10,7 +10,7 @@
         <exec executable="${ndk.dir}/${ndk.cmd}" failonerror="true">
             <arg line=""/>
         </exec>
-        <ant antfile = "build_copy_exe.xml" target = "copy_stockfish" failonerror="true"/> 
+        <ant antfile = "build_copy_exe.xml" target = "copy_stockfish"/> 
     </target>
 
     <target name="-pre-clean">
