@@ -18,7 +18,7 @@
             <arg line="clean"/>
         </exec>
         <delete>
-            <fileset dir="assets" includes="stockfish-*">
+            <fileset dir="assets" includes="stockfish-*"/>
         </delete>
     </target>
 
