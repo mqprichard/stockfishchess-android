@@ -15,8 +15,8 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>com.petero.droidfish</groupId>
-            <artifactId>DroidFish</artifactId>
+            <groupId>org.petero.droidfish</groupId>
+            <artifactId>CuckooChess</artifactId>
             <version>1.0.0</version>
             <scope>provided</scope>
         </dependency>
@@ -38,20 +38,14 @@
             <plugin>
                 <groupId>com.jayway.maven.plugins.android.generation2</groupId>
                 <artifactId>android-maven-plugin</artifactId>
+                <goals>
+                    <goal>ndk-build</goal>
+                </goals>
                 <configuration>
                     <sdk>
                         <!-- platform or api level (api level 16 = platform 4.1)-->
                         <platform>17</platform>
                     </sdk>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>com.jayway.maven.plugins.android.generation2</groupId>
-                <artifactId>android-maven-plugin</artifactId>
-                <goals>
-                    <goal>ndk-build</goal>
-                </goals>
-                <configuration>
                     <ndk>
                         <path>${env.ANDROID_NDK_HOME}</path>
                     </ndk>
