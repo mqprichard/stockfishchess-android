@@ -5,10 +5,7 @@ include $(CLEAR_VARS)
 LOCAL_MODULE    := nativeutil
 LOCAL_SRC_FILES := nativeutil.cpp
 
-LOCAL_CFLAGS    := \
-    -mandroid \
-	-DTARGET_OS=android -D__ANDROID__ \
-	-isystem $(SYSROOT)/usr/include
+LOCAL_CFLAGS    :=
 
 include $(BUILD_SHARED_LIBRARY)
 
