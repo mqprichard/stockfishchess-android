@@ -122,6 +122,8 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.zubhium.ZubhiumSDK;
+
 public class DroidFish extends Activity implements GUIInterface {
     // FIXME!!! book.txt (and test classes) should not be included in apk
 
@@ -328,6 +330,9 @@ public class DroidFish extends Activity implements GUIInterface {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        ZubhiumSDK.getZubhiumSDKInstance(getApplicationContext(), "ec56b5893fa58ff8dc60a013d1a824");
+
 
         Pair<String,String> pair = getPgnIntent();
         String intentPgn = pair.first;
